@@ -13,34 +13,34 @@ export default {
 
   computed: {
     ...mapState(['cart']),
-    total() {
-      return this.cart.reduce((total, product) => total + product.price, 0) // Calcula el total del carrito
-    },
+    // total() {
+    //   return this.cart.reduce((total, product) => total + product.price, 0) // Calcula el total del carrito
+    // },
   },
 
   methods: {
     // remover producto del carrito
     ...mapActions(['removeFromCart']),
 
-    increment(product) {
-      product.quantity++
-      this.updateProductPrice(product)
-    },
-    decrement(product) {
-      if (product.quantity > 1) {
-        product.quantity--
-        console.log(product.quantity)
-        console.log(product)
-      }
-      console.log(this.updateProductPrice(product))
+    // increment(product) {
+    //   product.quantity++
+    //   this.updateProductPrice(product)
+    // },
+    // decrement(product) {
+    //   if (product.quantity > 1) {
+    //     product.quantity--
+    //     console.log(product.quantity)
+    //     console.log(product)
+    //   }
+    //   console.log(this.updateProductPrice(product))
 
-    },
-    updateProductPrice(product) {
-      console.log(product)
-      console.log(product.originalPrice)
-      product.price = (product.quantity * product.originalPrice)
-      console.log(product.price)
-    },
+    // },
+    // updateProductPrice(product) {
+    //   console.log(product)
+    //   console.log(product.originalPrice)
+    //   product.price = (product.quantity * product.originalPrice)
+    //   console.log(product.price)
+    // },
 
     async proceedToCheckout() {
       console.log(this.cart)
@@ -113,13 +113,13 @@ export default {
   },
 
   mounted() {
-    // console.log(this.cart);
-    this.cart.forEach(product => {
-      if((product.price / product.quantity) !== (product.originalPrice)) {
-        // console.log('es distinto price', (product.price / product.quantity), product.originalPrice)
-        product.originalPrice = product.price
-      } 
-    })
+    console.log(this.cart);
+    // this.cart.forEach(product => {
+    //   if((product.price / product.quantity) !== (product.originalPrice)) {
+    //     // console.log('es distinto price', (product.price / product.quantity), product.originalPrice)
+    //     product.originalPrice = product.price
+    //   } 
+    // })
   }
 
 }
@@ -135,25 +135,13 @@ export default {
         <div v-else class="overflow-y-auto">
             <div v-for="(product, index) in cart" :key="index" class="card mt-2">
                 <div class="row row-col-6 p-1">
-                    <div class="card-body col-3">
-                        <img :src="product.urlImg" class="card-img-top">
-                    </div>
+
                     <div class="card-body col-9">
                         <h6>{{product.name}}</h6>
-                        <p class="description">{{ product.description }}</p>
-                        <div
-                            v-if="Object.keys(product.options).length > 0"
-                        >
-                            <div 
-                            v-for="(value, key) in product.options" :key="key"
-                            class="container-options"> 
-                                <span v-if="Array.isArray(value)">
-                                    {{ key }}: {{ value.map(option => option.text + (option.priceModifier !== 0 ? ' (+L.' + option.priceModifier + ')' : '')).join(', ') }}
-                                </span>
-                                <span v-else>{{ value.text }}</span>
-
-                            </div>
-                        </div>
+                        <p class="description">{{ product.price }}</p>
+                        <p class="description">{{ product.preparation }}</p>
+                        <p class="description">{{ product.delivery }}</p>
+                      
                     </div>
                 </div>
     
