@@ -13,9 +13,9 @@ export default {
 
   computed: {
     ...mapState(['cart']),
-    // total() {
-    //   return this.cart.reduce((total, product) => total + product.price, 0) // Calcula el total del carrito
-    // },
+    total() {
+      return this.cart.reduce((total, product) => total + product.price, 0) // Calcula el total del carrito
+    },
   },
 
   methods: {
@@ -150,9 +150,9 @@ export default {
                         <p class="card-text col-5 fw-semibold text-price m-0">L.{{ product.price }}</p> 
                         <button class="btn btn-danger col-1 me-5" @click="removeFromCart(product)">E</button>
 
-                        <button class="btn btn-increment col-1" @click="decrement(product)">-</button>
+                        <!-- <button class="btn btn-increment col-1" @click="decrement(product)">-</button>
                         <p class="col-1 increment-number">{{ product.quantity }}</p> 
-                        <button class="btn btn-increment col-1" @click="increment(product)">+</button> 
+                        <button class="btn btn-increment col-1" @click="increment(product)">+</button>  -->
                     </div>
                 </div>
                 
