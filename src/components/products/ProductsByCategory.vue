@@ -20,10 +20,12 @@ export default{
 
     data(){
         return {
+          //Aqui estoy listando mis productos en duro y no desde una api
             exams: [
                 {
                     id: 1,
                     name: "Examen General de Orina",
+                    category: "c-01",
                     price: 195.0,
                     preparation: "Cualquier hora del día ",
                     delivery: "Mismo día, dentro de 1 hora.",
@@ -31,12 +33,14 @@ export default{
                 {
                     id: 2,
                     name: "Examen General Heces",
+                    category: "c-02",
                     price: 250.0,
                     preparation: "Cualquier hora del día ",
                     delivery: "Mismo día, dentro de 1 hora.",
                 },
                 // Agregar más exámenes aquí...
             ],
+            examArray: null,
             // productDetail: '', 
             // productsByCategory: null,
             cart: [], // Agrega una lista para almacenar los objetos de carrito
@@ -44,38 +48,47 @@ export default{
         };
     },
 
-    // watch: {
-    //     '$route.params.category': function () {
-    //         this.getProductsByCategory();
-    //     }
-    // },
+    watch: {
+        '$route.params.category': function () {
+            this.getProductsByCategory();
+        }
+    },
 
-    // mounted(){
-    //     this.getProductsByCategory();
-    // },
+    mounted(){
+        this.getProductsByCategory();
+    },
 
     methods:{
-        // getProductsByCategory(){
-        //     let categoryId = this.$route.params.category;
-        //     if(categoryId !== " "){
 
-        //         let filters = `category=${categoryId}`;
-        //         apiProducts.listProductsByCategory(filters)
-        //         .then(response => {
-        //             this.productsByCategory = response.data.items;
-        //         })
+      //Aqui los filtraba por categoria pero usando una Api 
+        getProductsByCategory(){
+            let categoryId = this.$route.params.category;
+            if (categoryId !== " ") {
+              this.examArray = this.exams.filter((exam) => exam.category === categoryId);
+            } else {
+              this.examArray = this.exams; // Mostrar todos los exámenes si está vacío el parámetro de categorías
+            }
+
+            //CON API 
+            // if(categoryId !== " "){
+
+            //     let filters = `category=${categoryId}`;
+            //     apiProducts.listProductsByCategory(filters)
+            //     .then(response => {
+            //         this.productsByCategory = response.data.items;
+            //     })
                 
-        //     } else {
-        //         apiProducts.listProducts()
-        //         .then(response => {
-        //             this.productsByCategory = response.data.items;
+            // } else {
+            //     apiProducts.listProducts()
+            //     .then(response => {
+            //         this.productsByCategory = response.data.items;
  
-        //         })
+            //     })
 
-        //     }
+            // }
 
 
-        // },
+        },
 
 
         // Agregar al store global
@@ -130,10 +143,10 @@ export default{
     </div> -->
 
     <form @submit.prevent="addProductToCart">
-    <div class="row contenedor">
+    <div class="row container">
       <div
-        class="card link-none col-5"
-        v-for="exam in exams"
+        class="card link-none mt-4"
+        v-for="exam in examArray"
         :key="exam.id"
       >
         <div class="card-body">
@@ -144,7 +157,6 @@ export default{
             <p class="card-text col-6 fw-semibold align-text-bottom m-0">Costo: <b>L{{ exam.price.toFixed(2) }}</b></p>
             <div class="card p-2 mt-3">
                 <button type="submit" class="btn btn-primary" @click="addToCart(exam)">AGREGAR AL CARRITO</button>
-
             </div>
           </div>
         </div>

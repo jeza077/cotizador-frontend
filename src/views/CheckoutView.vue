@@ -39,7 +39,7 @@ export default {
 
         try {
             // const response = await axios.post('https://cors-server-glt0.onrender.com/https://botwa-stage.onrender.com/backWa', pedido, {
-            const response = await axios.post('https://cors-server-glt0.onrender.com/https://47e2-45-238-141-13.ngrok-free.app/backWa', pedido, {
+            const response = await axios.post('https://cors-server-glt0.onrender.com/https://0daf-45-238-141-13.ngrok-free.app/backWa', pedido, {
             // const response = await axios.post('http://localhost:8080/http://localhost:3000/backWa', pedido, {
             headers: {
                 'Accept': 'application/json',

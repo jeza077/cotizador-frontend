@@ -47,27 +47,37 @@ export default {
     </div> -->
 
     <div class="card-container">
-        <div 
-        class="card cards border-dark">
+        
+        <div class="card cards border-dark">
             <div class="card-body">     
                 <router-link 
                 class="link-category"
-                :to="{ name: 'categories', params: { 'category': '01'}}">
+                :to="{ name: 'categories', params: { 'category': ' '}}">
+                    <h5 class="card-title text-center">Todos</h5>
+                </router-link>
+            </div>
+        </div>
+
+        <div class="card cards border-dark">
+            <div class="card-body">     
+                <router-link 
+                class="link-category"
+                :to="{ name: 'categories', params: { 'category': 'c-01'}}">
+                    <h5 class="card-title text-center">Orina</h5>
+                </router-link>
+            </div>
+        </div>
+
+        <div class="card cards border-dark">
+            <div class="card-body">     
+                <router-link 
+                class="link-category"
+                :to="{ name: 'categories', params: { 'category': 'c-02'}}">
                     <h5 class="card-title text-center">Heces</h5>
                 </router-link>
             </div>
         </div>
 
-        <div 
-        class="card cards border-dark">
-            <div class="card-body">     
-                <router-link 
-                class="link-category"
-                :to="{ name: 'categories', params: { 'category': '02'}}">
-                    <h5 class="card-title text-center">Orina</h5>
-                </router-link>
-            </div>
-        </div>
     </div>
 
 </template>

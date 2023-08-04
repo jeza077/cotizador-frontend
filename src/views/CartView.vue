@@ -128,7 +128,7 @@ export default {
 
 <template>
     <div class="container" style="margin-top:5em">
-        <h1>Resumen de tu pedido</h1>
+        <h1>Resumen de tu cotización</h1>
         <div v-if="cart.length === 0">
             No hay productos en el carrito.
         </div>
@@ -138,9 +138,9 @@ export default {
 
                     <div class="card-body col-9">
                         <h6>{{product.name}}</h6>
-                        <p class="description">{{ product.price }}</p>
-                        <p class="description">{{ product.preparation }}</p>
-                        <p class="description">{{ product.delivery }}</p>
+                        <!-- <p class="description">{{ product.price }}</p> -->
+                        <p class="description"><b>Preparación: </b> {{ product.preparation }}</p>
+                        <p class="description"><b>Entrega: </b>{{ product.delivery }}</p>
                       
                     </div>
                 </div>
@@ -161,7 +161,7 @@ export default {
 
             <div class="row row-col-6 p-2 card-send-order fixed-bottom">
                 <p class="card-text col-6 fw-semibold text-price m-0">Total: L.{{ total }}</p> 
-                <button class="btn btn-primary col-6" @click="proceedToCheckout">Enviar pedido</button>
+                <button class="btn btn-primary col-6" @click="proceedToCheckout">Enviar cotización</button>
             </div>
 
 

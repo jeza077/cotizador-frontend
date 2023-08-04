@@ -51,7 +51,7 @@ export default{
 
 <template>
     <div class="container" style="margin-top:5em">
-        <h2 class="mt-5">Categorias</h2>
+        <h2 class="mt-5">Exámenes</h2>
         <div class="overflow">
             <ListCategories />
         </div>
