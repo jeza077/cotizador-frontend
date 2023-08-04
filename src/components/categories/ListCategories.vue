@@ -78,6 +78,16 @@ export default {
             </div>
         </div>
 
+        <div class="card cards border-dark">
+            <div class="card-body">     
+                <router-link 
+                class="link-category"
+                :to="{ name: 'categories', params: { 'category': 'c-03'}}">
+                    <h5 class="card-title text-center">Sangre</h5>
+                </router-link>
+            </div>
+        </div>
+
     </div>
 
 </template>

@@ -38,6 +38,14 @@ export default{
                     preparation: "Cualquier hora del día ",
                     delivery: "Mismo día, dentro de 1 hora.",
                 },
+                {
+                    id: 3,
+                    name: "Examen General Sangre",
+                    category: "c-03",
+                    price: 150.0,
+                    preparation: "Cualquier hora del día ",
+                    delivery: "Mismo día, dentro de 2 horas.",
+                },
                 // Agregar más exámenes aquí...
             ],
             examArray: null,
@@ -151,8 +159,8 @@ export default{
       >
         <div class="card-body">
           <h5 class="card-title title">{{ exam.name }}</h5>
-          <span class="text-link">Preparación del paciente: <b>{{ exam.preparation }}</b></span>
-          <span class="text-link">Entrega: <b>{{ exam.delivery }}</b></span>
+          <span class="text-link">Preparación del paciente: <b>{{ exam.preparation }}</b></span> <br/>
+          <span class="text-link">Entrega: <b>{{ exam.delivery }}</b></span> <br/>
           <div class="row mt-3">
             <p class="card-text col-6 fw-semibold align-text-bottom m-0">Costo: <b>L{{ exam.price.toFixed(2) }}</b></p>
             <div class="card p-2 mt-3">

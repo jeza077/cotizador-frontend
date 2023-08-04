@@ -33,7 +33,8 @@ const router = createRouter({
       // props: (route) => ({ cart: route.params.cart })
     },
     {
-      path: '/categories/:phone_number',
+      // path: '/categories/:phone_number',
+      path: '/exams/:phone_number',
       component: CategoriesView,
       // Agregamos esta propiedad para que el parámetro phone_number se agregue a la URL
       // cuando se llama a esta ruta
